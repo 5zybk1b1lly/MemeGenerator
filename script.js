@@ -2,8 +2,11 @@ const chosenPicture = document.querySelector("#select-picture");
 const canvas = document.querySelector("#meme");
 const textTop = document.querySelector("#text-top");
 const textBottom = document.querySelector("#text-bottom");
+const downloadButton = document.querySelector("#download-button");
 
 let picture;
+
+downloadButton.style.display = "none";
 
 function updateMeme(canvas, picture, textTop, textBottom)
 {
@@ -43,5 +46,15 @@ chosenPicture.addEventListener("change", function(e)
     {
         console.log("Obrazek został załadowany");
         updateMeme(canvas, picture, textTop.value, textBottom.value);
+        downloadButton.style.display = "block";
     });
 });
+
+downloadButton.addEventListener("click", function()
+{
+    const dataURL = canvas.toDataURL("image/png");
+    const a = document.createElement("a");
+    a.href = dataURL;
+    a.download = "meme.png";
+    a.click();
+})
