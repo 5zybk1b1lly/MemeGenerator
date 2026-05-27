@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&family=Lato&display=swap');
+
+*{
+   box-sizing: border-box; /*dodajemy właściwość, która pozwoli wliczać padding, oraz border do faktycznej szerokości lub wysokości danego elementu - łatwiej będzie nam uzyskać żądany efekt czyli jak chcemy żeby element miał 1000px to po prostu tyle wpisujemy w width i nie interesuje nas że ma jeszcze padding i border - te wartości zostaną wliczone*/
+}
+
+body{
+background: #00B4DB;  /* fallback for old browsers */
+background: -webkit-linear-gradient( bottom, #0083B0, #00B4DB);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+color: white;
+font-family: 'Lato', sans-serif;
+}
+
+#contener{
+  
+  width:1000px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+h1{
+  text-transform: uppercase;
+  text-align:center;
+  font-family: 'Kanit', sans-serif;
+  font-size:40px;
+}
+
+
+#panel{
+  margin-left:auto;
+  margin-right:auto;
+  width:500px;
+}
+
+.textbox {
+  width: 100%;
+  padding:10px;
+  font-family: 'Lato', sans-serif;
+  font-size:20px;
+  margin-bottom: 20px;
+}
+
+canvas {
+  width: 100%;
+}
+
+
+#select-picture{
+    display: none;
+}
+
+
+
+#picture-button, #download-button {
+   display:block;
+  width: 100%;
+    padding: 20px;
+background-color: #f5af19; 
+  text-align:center;
+  font-size:25px;
+  margin-bottom:50px;
+}
+
+#download-button{
+  border:none;
+  color:white;
+  
+}
+
+#picture-button:hover,#download-button:hover{
+  
+  cursor: pointer;
+  opacity:0.8;
+}
+
+
