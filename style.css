@@ -1,79 +1,164 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit&family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&family=Lato:wght@400;700&display=swap');
 
-*{
-   box-sizing: border-box; /*dodajemy właściwość, która pozwoli wliczać padding, oraz border do faktycznej szerokości lub wysokości danego elementu - łatwiej będzie nam uzyskać żądany efekt czyli jak chcemy żeby element miał 1000px to po prostu tyle wpisujemy w width i nie interesuje nas że ma jeszcze padding i border - te wartości zostaną wliczone*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-body{
-background: #00B4DB;  /* fallback for old browsers */
-background: -webkit-linear-gradient( bottom, #0083B0, #00B4DB);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to bottom, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-color: white;
-font-family: 'Lato', sans-serif;
-}
-
-#contener{
-  
-  width:1000px;
-  margin-left:auto;
-  margin-right:auto;
-}
-
-h1{
-  text-transform: uppercase;
-  text-align:center;
-  font-family: 'Kanit', sans-serif;
-  font-size:40px;
-}
-
-
-#panel{
-  margin-left:auto;
-  margin-right:auto;
-  width:500px;
-}
-
-.textbox {
-  width: 100%;
-  padding:10px;
+body {
+  min-height: 100vh;
+  background: #0f0c29;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: #f0f0f0;
   font-family: 'Lato', sans-serif;
-  font-size:20px;
-  margin-bottom: 20px;
-  border-radius: 10px;
+  padding: 40px 20px;
+}
+
+#contener {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-transform: uppercase;
+  text-align: center;
+  font-family: 'Kanit', sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  margin-bottom: 40px;
+  background: linear-gradient(90deg, #a78bfa, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+h1 img {
+  -webkit-filter: drop-shadow(0 0 12px rgba(167, 139, 250, 0.6));
+  filter: drop-shadow(0 0 12px rgba(167, 139, 250, 0.6));
+}
+
+#layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+#panel {
+  flex: 0 0 380px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#canvas-wrapper {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  overflow: hidden;
 }
 
 canvas {
   width: 100%;
+  border-radius: 16px;
+  display: block;
 }
 
-
-#select-picture{
-    display: none;
+h3 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #a78bfa;
+  margin-top: 16px;
+  margin-bottom: 6px;
 }
 
+.textbox {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  color: #f0f0f0;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
 
+.textbox::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.textbox:focus {
+  border-color: #a78bfa;
+  background: rgba(167, 139, 250, 0.1);
+}
+
+#select-picture {
+  display: none;
+}
 
 #picture-button, #generate-button, #download-button {
-   display:block;
+  display: block;
   width: 100%;
-    padding: 20px;
-background-color: #f5af19; 
-  text-align:center;
-  font-size:25px;
-  margin-bottom:50px;
-  border-radius: 10px;
-}
-
-#generate-button, #download-button{
-  border:none;
-  color:white;
-  border-radius: 10px;
-}
-
-#picture-button:hover, #generate-button:hover, #download-button:hover{
-  
+  padding: 14px 20px;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 12px;
+  border: none;
   cursor: pointer;
-  opacity:0.8;
+  transition: transform 0.15s, opacity 0.15s, box-shadow 0.15s;
 }
 
+#picture-button {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  margin-top: 8px;
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35);
+}
 
+#generate-button {
+  background: linear-gradient(135deg, #06b6d4, #3b82f6);
+  color: white;
+  margin-top: 24px;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.35);
+}
+
+#download-button {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  margin-top: 12px;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.35);
+}
+
+#picture-button:hover, #generate-button:hover, #download-button:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+}
+
+#picture-button:active, #generate-button:active, #download-button:active {
+  transform: translateY(0);
+}
