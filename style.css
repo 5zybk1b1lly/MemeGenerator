@@ -39,6 +39,7 @@ h1{
   font-family: 'Lato', sans-serif;
   font-size:20px;
   margin-bottom: 20px;
+  border-radius: 10px;
 }
 
 canvas {
@@ -52,7 +53,7 @@ canvas {
 
 
 
-#picture-button, #download-button {
+#picture-button, #generate-button, #download-button {
    display:block;
   width: 100%;
     padding: 20px;
@@ -60,15 +61,16 @@ background-color: #f5af19;
   text-align:center;
   font-size:25px;
   margin-bottom:50px;
+  border-radius: 10px;
 }
 
-#download-button{
+#generate-button, #download-button{
   border:none;
   color:white;
-  
+  border-radius: 10px;
 }
 
-#picture-button:hover,#download-button:hover{
+#picture-button:hover, #generate-button:hover, #download-button:hover{
   
   cursor: pointer;
   opacity:0.8;

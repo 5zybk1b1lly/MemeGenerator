@@ -2,10 +2,12 @@ const chosenPicture = document.querySelector("#select-picture");
 const canvas = document.querySelector("#meme");
 const textTop = document.querySelector("#text-top");
 const textBottom = document.querySelector("#text-bottom");
+const generateButton = document.querySelector("#generate-button");
 const downloadButton = document.querySelector("#download-button");
 
 let picture;
 
+generateButton.style.display = "none";
 downloadButton.style.display = "none";
 
 function updateMeme(canvas, picture, textTop, textBottom)
@@ -25,7 +27,7 @@ function updateMeme(canvas, picture, textTop, textBottom)
     ctx.strokeStyle = "black";
     ctx.lineWidth = Math.floor(fontSize / 4);
     ctx.fillStyle = "white";
-    ctx.textAllign = "center";
+    ctx.textAlign = "center";
     ctx.lineJoin = "round";
     ctx.font = `${fontSize}px Lato`;
 
@@ -44,10 +46,17 @@ chosenPicture.addEventListener("change", function(e)
     picture.src = pictureURL;
     picture.addEventListener("load", function()
     {
-        console.log("Obrazek został załadowany");
+        generateButton.style.display = "block";
+        downloadButton.style.display = "none";
+    });
+});
+
+generateButton.addEventListener("click", function()
+{
+    if (picture) {
         updateMeme(canvas, picture, textTop.value, textBottom.value);
         downloadButton.style.display = "block";
-    });
+    }
 });
 
 downloadButton.addEventListener("click", function()
